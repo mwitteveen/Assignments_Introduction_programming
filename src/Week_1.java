@@ -22,7 +22,7 @@ public class Week_1 {
         float_and_integer_test();
 
         System.out.println("\n" + "Assignment 5:\n" + "");
-        //ask_input_and_print();
+        ask_input_and_print();
 
         System.out.println("\n" + "Assignment 6:\n" + "");
         loop_excercise();
