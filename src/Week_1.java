@@ -26,6 +26,9 @@ public class Week_1 {
 
         System.out.println("\n" + "Assignment 6:\n" + "");
         loop_excercise();
+
+        System.out.println("\n" + "Assignment 7:\n" + "");
+        very_hard_test(5);
     }
 
     //print out hello world
@@ -107,22 +110,31 @@ public class Week_1 {
                 "Serie 3 result: " + sum3);
     }
 
+    /**
+     * @DESC: SHOW A PRICELIST
+     * @PARAM: THE NUMBER OF ITEMS THAT IS ON THE SHOPPING LIST
+     * @RETURN: PRINTS OUT THE LIST WITH THE TOTAL PRICES
+     */
     private static void very_hard_test(int number_of_products) {
 
-        String[] products = new String[number_of_products - 1];
-        Double[] prices = new Double[number_of_products - 1];
+        //MAKE ARRAYS WHERE THE PRODUCT AND PRICES CAN BE STORED
+        String[] products = new String[number_of_products];
+        Double[] prices = new Double[number_of_products];
 
+        //SCANNER OBJECT
         Scanner in = new Scanner(System.in);
 
-        for (int i = 1; i <= 5; i++) {
+        //LOOP THROUGH OVER ALL THE PRODUCTS
+        for (int i = 0; i <= (number_of_products -1); i++) {
             Boolean price_added = Boolean.FALSE;
-            System.out.println("Please give the name of product " + i + ":");
-            products[i - 1] = in.nextLine();
+            System.out.println("Please give the name of product " + (i + 1) + ":");
+            products[i] = in.nextLine();
 
-            System.out.println("What is the price of " + products[i - 1] + "?");
+            System.out.println("What is the price of " + products[i] + "?");
             do {
+                //ERROR HANDLING TO MAKE SURE THE PRICE IS A NUMBER
                 try {
-                    prices[i - 1] = Double.parseDouble(in.nextLine());
+                    prices[i] = Double.parseDouble(in.nextLine());
                     price_added = Boolean.TRUE; }
                 catch (NumberFormatException e) {
                     System.out.println("Please enter a number:");
@@ -130,10 +142,16 @@ public class Week_1 {
             } while (!price_added);
         }
 
+        //PRINT ALL THE PRICES
+        Double sum = .0;
         System.out.println("Item list and prices:");
-        for (int i=0;i<= number_of_products -1;i++){
-            System.out.println(prices[i]);
+        for (int i=0;i<= (number_of_products -1);i++){
+            System.out.println(products[i] + " " + prices[i]);
+            sum = sum + prices[i];
         }
+
+        System.out.println("Total price: " + sum);
+
     }
 
 }
